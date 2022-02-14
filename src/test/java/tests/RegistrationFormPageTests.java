@@ -22,9 +22,10 @@ public class RegistrationFormPageTests {
 
     @Test
     void successFillTest() {
-        registrationPage.openPage();
-        registrationPage.setFirstNameInput(firstName);
-        registrationPage.setLastNameInput("Golub");
+        registrationPage
+                .openPage()
+                .setFirstNameInput(firstName)
+                .setLastNameInput("Golub");
 
 
         $("#userEmail").setValue("Golub@mail.guli");

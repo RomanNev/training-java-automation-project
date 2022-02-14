@@ -17,24 +17,24 @@ public class RegistrationPage {
 
     //actions
 
-   public void openPage(){
+   public RegistrationPage openPage(){
        open("/automation-practice-form");
-
+       return this;
    }
 
-   public void setFirstNameInput(String firstName) {
+   public RegistrationPage setFirstNameInput(String firstName) {
        firstNameInput.setValue(firstName);
-
+       return this;
    }
 
-   public void setLastNameInput(String lastName) {
+   public RegistrationPage setLastNameInput(String lastName) {
        lastNameInput.setValue(lastName);
-
+       return this;
    }
 
    public void checkForm(){
        $(".table-responsive").shouldHave(
-               text("checkData[0]"),
+               text("Roman Golub"),
                text("Golub@mail.guli"),
                text("Male"),
                text("7111222334"),
