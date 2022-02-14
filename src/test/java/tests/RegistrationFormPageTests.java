@@ -3,12 +3,16 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import pages.RegistrationPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationFormTest {
+public class RegistrationFormPageTests {
+
+    RegistrationPage registrationPage = new RegistrationPage();
+    String firstName = "Roman";
 
     @BeforeAll
     static void beforeAll() {
@@ -18,10 +22,11 @@ public class RegistrationFormTest {
 
     @Test
     void successFillTest() {
-        open("/automation-practice-form");
+        registrationPage.openPage();
+        registrationPage.setFirstNameInput(firstName);
+        registrationPage.setLastNameInput("Golub");
 
-        $("#firstName").setValue("Roman");
-        $("#lastName").setValue("Golub");
+
         $("#userEmail").setValue("Golub@mail.guli");
         $("#userNumber").setValue("71112223344");
         $(byText("Male")).click();
@@ -40,17 +45,7 @@ public class RegistrationFormTest {
         $("#submit").click();
 
 
-        $(".table-responsive").shouldHave(
-                text("Roman Golub"),
-                text("Golub@mail.guli"),
-                text("Male"),
-                text("7111222334"),
-                text("24 August,1900"),
-                text("English"),
-                text("Music"),
-                text("golub.jpg"),
-                text("Lavrushinsky Ln, 10, Moscow, 119017"),
-                text("NCR Delhi"));
+        registrationPage.checkForm();
 
     }
 
