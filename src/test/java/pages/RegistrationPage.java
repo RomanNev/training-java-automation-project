@@ -1,19 +1,21 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import pages.component.CalendarComponent;
 
 import java.util.ArrayList;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class RegistrationPage {
+    CalendarComponent calendarComponent = new CalendarComponent();
+
     // locators
     SelenideElement firstNameInput = $("#firstName"),
                     lastNameInput =  $("#lastName");
-
-
 
     //actions
 
@@ -30,6 +32,13 @@ public class RegistrationPage {
    public RegistrationPage setLastNameInput(String lastName) {
        lastNameInput.setValue(lastName);
        return this;
+   }
+
+   public void setBirthDate(String day, String month, String year){
+       $("#dateOfBirthInput").click();
+       calendarComponent.setDate(day,month,year);
+
+
    }
 
    public void checkForm(){

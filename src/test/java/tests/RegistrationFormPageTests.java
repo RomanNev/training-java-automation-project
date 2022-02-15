@@ -31,10 +31,11 @@ public class RegistrationFormPageTests {
         $("#userEmail").setValue("Golub@mail.guli");
         $("#userNumber").setValue("71112223344");
         $(byText("Male")).click();
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption("August");
-        $(".react-datepicker__year-select").selectOption("1900");
-        $(byText("24")).click();
+
+        registrationPage.setBirthDate("24","August","1900");
+
+
+
         $("#subjectsInput").setValue("English").pressEnter();
         $(byText("Music")).click();
         $("#uploadPicture").uploadFromClasspath("jpg/golub.jpg");
