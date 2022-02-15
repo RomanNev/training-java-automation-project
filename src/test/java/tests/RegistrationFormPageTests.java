@@ -5,10 +5,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-
 public class RegistrationFormPageTests {
 
     RegistrationPage registrationPage = new RegistrationPage();
@@ -32,37 +28,30 @@ public class RegistrationFormPageTests {
 
     @BeforeAll
     static void beforeAll() {
+        //Arrange
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
     }
 
     @Test
     void successFillTest() {
+        // Act
         registrationPage
                 .openPage()
                 .setFirstNameInput(firstName)
-                .setLastNameInput(lastName);
+                .setLastNameInput(lastName)
+                .setUserEmailInput(userEmail)
+                .setUserNumberInput(userNumber)
+                .selectGender(gender)
+                .setBirthDate(calendarDay,calendarMonth,calendarYear)
+                .setSubjectsInput(subjectsText)
+                .setHobbies(hobbiesText)
+                .selectUploadPicture(fileName)
+                .setCurrentAddressInput(currentAddress)
+                .selectStateAndCity(stateName,cityName)
+                .submitForm();
 
-
-        $("#userEmail").setValue("Golub@mail.guli");
-        $("#userNumber").setValue("71112223344");
-        $(byText("Male")).click();
-
-        registrationPage.setBirthDate(calendarDay,calendarMonth,calendarYear);
-
-
-
-        $("#subjectsInput").setValue("English").pressEnter();
-        $(byText("Music")).click();
-        $("#uploadPicture").uploadFromClasspath("jpg/golub.jpg");
-        $("#currentAddress").setValue("Lavrushinsky Ln, 10, Moscow, 119017");
-        $("#react-select-3-input").setValue("NCR");
-        $("#react-select-3-option-0").click();
-        $("#react-select-4-input").setValue("Delhi");
-        $("#react-select-4-option-0").click();
-        $("#submit").click();
-
-
+        // Assert
         registrationPage.checkForm();
 
     }
