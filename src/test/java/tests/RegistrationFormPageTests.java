@@ -12,7 +12,23 @@ import static com.codeborne.selenide.Selenide.*;
 public class RegistrationFormPageTests {
 
     RegistrationPage registrationPage = new RegistrationPage();
+
+    //configuration variables
     String firstName = "Roman";
+    String lastName = "Golub";
+    String userEmail = "Golub@mail.guli";
+    String userNumber = "71112223344";
+    String gender = "Male";
+    String calendarDay = "24";
+    String calendarMonth = "August";
+    String calendarYear = "1900";
+    String subjectsText = "English";
+    String hobbiesText = "Music";
+    String fileName = "golub.jpg";
+    String currentAddress = "Lavrushinsky Ln, 10, Moscow, 119017";
+    String stateName = "NCR";
+    String cityName = "Delhi";
+
 
     @BeforeAll
     static void beforeAll() {
@@ -25,14 +41,14 @@ public class RegistrationFormPageTests {
         registrationPage
                 .openPage()
                 .setFirstNameInput(firstName)
-                .setLastNameInput("Golub");
+                .setLastNameInput(lastName);
 
 
         $("#userEmail").setValue("Golub@mail.guli");
         $("#userNumber").setValue("71112223344");
         $(byText("Male")).click();
 
-        registrationPage.setBirthDate("24","August","1900");
+        registrationPage.setBirthDate(calendarDay,calendarMonth,calendarYear);
 
 
 
