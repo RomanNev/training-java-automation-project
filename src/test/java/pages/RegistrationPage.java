@@ -26,7 +26,9 @@ public class RegistrationPage {
             stateSelectSet =   $("#react-select-3-option-0"),
             citySelect =   $("#react-select-4-input"),
             citySelectSet = $("#react-select-4-option-0"),
-            submitForm = $("#submit");
+            submitForm = $("#submit"),
+            resultTable =  $(".table-responsive");
+
 
 
     //actions
@@ -95,26 +97,30 @@ public class RegistrationPage {
        return this;
    }
 
-   public RegistrationPage setBirthDate(String day, String month, String year){
+   public RegistrationPage setBirthDate(String month, String year){
        $("#dateOfBirthInput").click();
-       calendarComponent.setDate(day,month,year);
+       calendarComponent.setDate(month,year);
        return this;
 
    }
 
-   public void checkForm(){
-       $(".table-responsive").shouldHave(
-               text("Roman Golub"),
-               text("Golub@mail.guli"),
-               text("Male"),
-               text("7111222334"),
-               text("24 August,1900"),
-               text("English"),
-               text("Music"),
-               text("golub.jpg"),
-               text("Lavrushinsky Ln, 10, Moscow, 119017"),
-               text("NCR Delhi"));
-
+   public void checkForm(String fullName, String userEmail,
+                         String gender,String userNumber,
+                         String dateOfBirth, String subjectsText,
+                         String hobbiesText, String fileName,
+                         String currentAddress, String stateAndCityName
+                         ){
+       resultTable.shouldHave(
+               text(fullName),
+               text(userEmail),
+               text(gender),
+               text(userNumber),
+               text(dateOfBirth),
+               text(subjectsText),
+               text(hobbiesText),
+               text(fileName),
+               text(currentAddress),
+               text(stateAndCityName));
    }
 
 }

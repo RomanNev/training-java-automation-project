@@ -13,9 +13,8 @@ public class RegistrationFormPageTests {
     String firstName = "Roman";
     String lastName = "Golub";
     String userEmail = "Golub@mail.guli";
-    String userNumber = "71112223344";
+    String userNumber = "7111222334";
     String gender = "Male";
-    String calendarDay = "24";
     String calendarMonth = "August";
     String calendarYear = "1900";
     String subjectsText = "English";
@@ -24,6 +23,9 @@ public class RegistrationFormPageTests {
     String currentAddress = "Lavrushinsky Ln, 10, Moscow, 119017";
     String stateName = "NCR";
     String cityName = "Delhi";
+    String dateOfBirth = "24 August,1900";
+    String stateAndCityName = "NCR Delhi";
+    String fullName = "Roman Golub";
 
 
     @BeforeAll
@@ -43,7 +45,7 @@ public class RegistrationFormPageTests {
                 .setUserEmailInput(userEmail)
                 .setUserNumberInput(userNumber)
                 .selectGender(gender)
-                .setBirthDate(calendarDay,calendarMonth,calendarYear)
+                .setBirthDate(calendarMonth,calendarYear)
                 .setSubjectsInput(subjectsText)
                 .setHobbies(hobbiesText)
                 .selectUploadPicture(fileName)
@@ -51,8 +53,20 @@ public class RegistrationFormPageTests {
                 .selectStateAndCity(stateName,cityName)
                 .submitForm();
 
+
         // Assert
-        registrationPage.checkForm();
+        registrationPage.checkForm(
+                fullName,
+                userEmail,
+                gender,
+                userNumber,
+                dateOfBirth,
+                subjectsText,
+                hobbiesText,
+                fileName,
+                currentAddress,
+                stateAndCityName
+        );
 
     }
 
