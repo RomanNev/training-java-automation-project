@@ -15,12 +15,6 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class WebSteps {
 
-    @BeforeAll
-    static void beforeAll() {
-        //Arrange
-        Configuration.browserSize = "1920x1080";
-    }
-
     @Step("Opening the page  github")
     public void openPage() {
         open("https://github.com/");
