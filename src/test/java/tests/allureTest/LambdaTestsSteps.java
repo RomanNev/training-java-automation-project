@@ -24,23 +24,35 @@ public class LambdaTestsSteps {
     void allureLambdaTests(){
         SelenideLogger.addListener("allure", new AllureSelenide());
 
-        step("Открываем страницу github", () ->{
+        step("Opening the page  github", () ->{
             open("https://github.com/");
         });
 
-        step(" ввести в поиск RomanNev/training-java-automation-project", () ->{
+        step("enter in search  RomanNev/training-java-automation-project", () ->{
             $(".header-search-input").setValue("RomanNev/training-java-automation-project").submit();
         });
 
-        step("перейти в искомый репозиторий", () -> {
+        step("go to the desired repository", () -> {
             $(By.linkText("RomanNev/training-java-automation-project")).click();
         });
 
-        step("искомый репозиторий есть на странице и поле Issues есть на странице", () -> {
+        step("the required repository is on the page and the Issues field is on the page", () -> {
             $("#repository-container-header").shouldHave(
                     text("training-java-automation-project"),
                     text("Issues"));
         });
+
+    }
+
+    @Test
+    void allureWebStepsTests(){
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
+        WebSteps webSteps = new WebSteps();
+        webSteps.openPage();
+        webSteps.searchForRepository();
+        webSteps.openRepository();
+        webSteps.checkingRepositoryAndTabsIssues();
 
     }
 }
