@@ -34,7 +34,6 @@ public class ListenerTest {
                 text("training-java-automation-project"),
                 text("Issues"));
 
-
     }
 
 }
