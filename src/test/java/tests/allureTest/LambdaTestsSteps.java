@@ -1,12 +1,14 @@
 package tests.allureTest;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.*;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -34,6 +36,7 @@ public class LambdaTestsSteps {
 
         step("go to the desired repository", () -> {
             $(By.linkText("RomanNev/training-java-automation-project")).click();
+            Allure.addAttachment("Page source", "text/html", WebDriverRunner.source(),"html");
         });
 
         step("the required repository is on the page and the Issues field is on the page", () -> {
@@ -45,6 +48,13 @@ public class LambdaTestsSteps {
     }
 
     @Test
+    @Owner("golub")
+    @Severity(SeverityLevel.NORMAL)
+    @Feature("exemple test")
+    @Story("new issue")
+    @DisplayName("Check issue inrepository")
+    @Description("annotation demonstration ")
+    @Link(value = "Test", url = "https://github.com/")
     void allureWebStepsTests(){
         SelenideLogger.addListener("allure", new AllureSelenide());
 
@@ -53,6 +63,8 @@ public class LambdaTestsSteps {
         webSteps.searchForRepository();
         webSteps.openRepository();
         webSteps.checkingRepositoryAndTabsIssues();
+
+        webSteps.takeScreenshot();
 
     }
 }
