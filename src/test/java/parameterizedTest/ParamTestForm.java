@@ -53,7 +53,7 @@ public class ParamTestForm {
     }
 
 
-    // вариант с  CsvSource
+    // вариант с  ValueSource
     @CsvSource(value = {
             "Alan | alan@email.ru | 25 W Houston St, New York, USA | 145 Carnation Ave, Floral Park, USA",
             "Bob | bob@email.ru | Warren St, Staten Island, NY, USA | 60 Floral Blvd, Floral Park, USA",
@@ -62,7 +62,7 @@ public class ParamTestForm {
             delimiter = '|'
     )
 
-    @ParameterizedTest(name = "Проверка регистрационной формы через CsvSource  \"{0}\" ")
+    @ParameterizedTest(name = "Проверка регистрационной формы через ValueSource  \"{0}\" ")
     void ComplexFormTest(String name, String email, String currentAddress, String permanentAddress) {
         $("#userName").setValue(name);
         $("#userEmail").setValue(email);
