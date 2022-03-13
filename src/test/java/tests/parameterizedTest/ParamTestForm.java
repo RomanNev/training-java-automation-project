@@ -1,4 +1,4 @@
-package parameterizedTest;
+package tests.parameterizedTest;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
