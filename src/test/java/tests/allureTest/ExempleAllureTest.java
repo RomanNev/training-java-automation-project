@@ -1,4 +1,5 @@
 package tests.allureTest;
+
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -6,6 +7,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -20,7 +22,7 @@ public class ExempleAllureTest {
     }
 
     @Test
-    void allureTestGithub(){
+    void allureTestGithub() {
         SelenideLogger.addListener("allure", new AllureSelenide()); //подключаем визуализацию шагов в отчете
 
         open("https://github.com/");

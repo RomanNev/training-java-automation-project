@@ -45,12 +45,12 @@ public class RegistrationFormPageTests {
                 .setUserEmailInput(userEmail)
                 .setUserNumberInput(userNumber)
                 .selectGender(gender)
-                .setBirthDate(calendarMonth,calendarYear)
+                .setBirthDate(calendarMonth, calendarYear)
                 .setSubjectsInput(subjectsText)
                 .setHobbies(hobbiesText)
                 .selectUploadPicture(fileName)
                 .setCurrentAddressInput(currentAddress)
-                .selectStateAndCity(stateName,cityName)
+                .selectStateAndCity(stateName, cityName)
                 .submitForm();
 
 

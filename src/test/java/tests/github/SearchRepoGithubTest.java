@@ -1,7 +1,9 @@
 package tests.github;
+
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -15,7 +17,7 @@ public class SearchRepoGithubTest {
     }
 
     @Test
-    void shouldFindInGithub(){
+    void shouldFindInGithub() {
         //открыть страницу Selenide в Github
         open("https://github.com/selenide/selenide");
         // Перейдите в раздел Wiki проекта

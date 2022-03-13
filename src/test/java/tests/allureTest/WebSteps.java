@@ -22,18 +22,18 @@ public class WebSteps {
     }
 
     @Step("enter in search  RomanNev/training-java-automation-project")
-    public void searchForRepository(){
+    public void searchForRepository() {
         $(".header-search-input").setValue("RomanNev/training-java-automation-project").submit();
 
     }
 
     @Step("go to the desired repository")
-    public void openRepository(){
+    public void openRepository() {
         $(By.linkText("RomanNev/training-java-automation-project")).click();
     }
 
     @Step("the required repository is on the page and the Issues field is on the page")
-    public void checkingRepositoryAndTabsIssues(){
+    public void checkingRepositoryAndTabsIssues() {
         $("#repository-container-header").shouldHave(
                 text("training-java-automation-project"),
                 text("Issues"));
