@@ -14,6 +14,14 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
+
+//аннтотации на уровне класса применяются ко всем тестам внутри класса
+@Owner("golub")
+@Severity(SeverityLevel.NORMAL)
+@Feature("exemple test")
+@Story("new issue")
+@DisplayName("Check issue inrepository")
+@Link(value = "Test", url = "https://github.com/")
 public class LambdaTestsSteps {
 
     @BeforeEach
@@ -52,13 +60,7 @@ public class LambdaTestsSteps {
     }
 
     @Test
-    @Owner("golub")
-    @Severity(SeverityLevel.NORMAL)
-    @Feature("exemple test")
-    @Story("new issue")
-    @DisplayName("Check issue inrepository")
     @Description("annotation demonstration ")
-    @Link(value = "Test", url = "https://github.com/")
     void allureWebStepsTests() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
