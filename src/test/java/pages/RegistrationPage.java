@@ -77,8 +77,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setUserNumberInput(String userNumber){
-        userNumberInput.setValue(userNumber);
+    public RegistrationPage setUserNumberInput(String userNumberInput){
+        this.userNumberInput.setValue(userNumberInput);
         return this;
     }
 
@@ -104,23 +104,10 @@ public class RegistrationPage {
 
    }
 
-   public void checkForm(String fullName, String userEmail,
-                         String gender,String userNumber,
-                         String dateOfBirth, String subjectsText,
-                         String hobbiesText, String fileName,
-                         String currentAddress, String stateAndCityName
-                         ){
-       resultTable.shouldHave(
-               text(fullName),
-               text(userEmail),
-               text(gender),
-               text(userNumber),
-               text(dateOfBirth),
-               text(subjectsText),
-               text(hobbiesText),
-               text(fileName),
-               text(currentAddress),
-               text(stateAndCityName));
+   public RegistrationPage checkForm(String checkData){
+       resultTable.shouldHave(text(checkData));
+       return this;
+
    }
 
 }
