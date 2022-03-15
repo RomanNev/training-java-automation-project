@@ -47,7 +47,7 @@ public class RegistrationFormPageTests {
                 .selectGender(gender)
                 .setBirthDate(calendarMonth, calendarYear)
                 .setSubjectsInput(subjectsText)
-                .setHobbies(hobbiesText)
+                .setHobby(hobbiesText)
                 .selectUploadPicture(fileName)
                 .setCurrentAddressInput(currentAddress)
                 .selectStateAndCity(stateName, cityName)

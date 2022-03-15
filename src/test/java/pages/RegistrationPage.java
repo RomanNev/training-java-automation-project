@@ -61,7 +61,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setHobbies(String hobbies){
+    public RegistrationPage setHobby(String hobbies){
         $(byText(hobbies)).click();
         return this;
     }
