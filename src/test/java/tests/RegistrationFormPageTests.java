@@ -55,18 +55,17 @@ public class RegistrationFormPageTests {
 
 
         // Assert
-        registrationPage.checkForm(
-                fullName,
-                userEmail,
-                gender,
-                userNumber,
-                dateOfBirth,
-                subjectsText,
-                hobbiesText,
-                fileName,
-                currentAddress,
-                stateAndCityName
-        );
+        registrationPage
+                .checkForm(fullName)
+                .checkForm(userEmail)
+                .checkForm(gender)
+                .checkForm(userNumber)
+                .checkForm(dateOfBirth)
+                .checkForm(subjectsText)
+                .checkForm(fileName)
+                .checkForm(currentAddress)
+                .checkForm(stateAndCityName);
+
 
     }
 
