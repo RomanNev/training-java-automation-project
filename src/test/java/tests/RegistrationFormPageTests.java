@@ -10,7 +10,7 @@ public class RegistrationFormPageTests {
     RegistrationPage registrationPage = new RegistrationPage();
 
     //configuration variables
-    String firstName = "Roman";
+    String firstName = "Volodya";
     String lastName = "Golub";
     String userEmail = "Golub@mail.guli";
     String userNumber = "7111222334";
