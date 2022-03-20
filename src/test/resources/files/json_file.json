@@ -1,0 +1,12 @@
+{
+  "name": "Roman",
+  "surname": "Golub",
+  "favorite_parrot": [
+    "Clover",
+    "Tosha "
+  ],
+  "address": {
+    "street": "Mira",
+    "house": 60
+  }
+}
