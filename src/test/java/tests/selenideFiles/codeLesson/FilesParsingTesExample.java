@@ -1,4 +1,4 @@
-package tests.selenideFiles;
+package tests.selenideFiles.codeLesson;
 
 import com.codeborne.pdftest.PDF;
 import com.codeborne.selenide.Selenide;
