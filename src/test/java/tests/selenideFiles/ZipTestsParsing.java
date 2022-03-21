@@ -22,9 +22,9 @@ public class ZipTestsParsing {
         ZipFile zipFile = new ZipFile("src/test/resources/files/archive.zip");
 
         try (InputStream is = classLoader.getResourceAsStream("files/archive.zip");
-             ZipInputStream zis = new ZipInputStream(is)) {
+             ZipInputStream zis = new ZipInputStream(is)) { // достаем файлы из архива
             ZipEntry entry;
-            while ((entry = zis.getNextEntry()) != null) {
+            while ((entry = zis.getNextEntry()) != null) { // перебираем файлы
                 if (entry.getName().contains("pdf_sample.pdf")) {
                     PDF pdf = new PDF(zipFile.getInputStream(entry));
                     assertThat(pdf.text).contains("A Simple PDF File");
