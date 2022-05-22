@@ -21,6 +21,8 @@ public class ExempleAllureTest {
         Configuration.browserSize = "1920x1080";
     }
 
+
+
     @Test
     void allureTestGithub() {
         SelenideLogger.addListener("allure", new AllureSelenide()); //подключаем визуализацию шагов в отчете
